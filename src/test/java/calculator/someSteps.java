@@ -1,6 +1,7 @@
 package calculator;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThrows;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -11,13 +12,10 @@ public class someSteps {
 
     Calculator calculator = new Calculator();
 
-    @Given("the input is \\{empty}")
-    public void the_input_is() {
-        calculator.input("");
-    }
+
 
     @Then("print {int}")
-    public void print(Integer int1) {
+    public void print(Integer int1) throws Exception {
         assertEquals((int)int1,calculator.print());
     }
 
@@ -64,6 +62,10 @@ public class someSteps {
         calculator.input(string);
     }
 
+    @Then("throw an error")
+    public void throw_an_error() throws Exception {
+        assertThrows(Exception.class, () -> calculator.print());
+    }
 
 
 

@@ -1,6 +1,6 @@
 Feature: Calculator
   Scenario: Receiving no numbers
-    Given the input is {empty}
+    Given the input is ""
     Then print 0
 
   Scenario: Receiving one number
@@ -30,9 +30,12 @@ Feature: Calculator
     Given the input is "3,3\n3\n3"
     Then print 12
 
-  Scenario: custom delimiters
-    Given the input is "//;\n1;2"
-    Then print 3
+  Scenario: The user inputs a custom delimiter
+    Given the input is "//;\n1;2;5"
+    Then print 8
 
+  Scenario: The user inputs a negative number
+    Given the input is "1,-3"
+    Then throw an error
 
 
