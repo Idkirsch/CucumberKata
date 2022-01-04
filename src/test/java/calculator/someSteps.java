@@ -67,6 +67,13 @@ public class someSteps {
         assertThrows(Exception.class, () -> calculator.print());
     }
 
+    @Then("print {string}")
+    public void print(String string) throws Exception {
+        assertEquals(string,calculator.print());
+
+        throw new io.cucumber.java.PendingException();
+    }
+
 
 
 }
